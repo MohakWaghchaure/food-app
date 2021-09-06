@@ -3,19 +3,21 @@ import classes from "./MealItemForm.module.css";
 import Input from "../../UI/Input";
 
 const MealItemForm = (props)=>{
-    const [enteredAmount, setAmountIsValid] = useState(true);
+    const [amountIsValid, setAmountIsValid] = useState(true);
     const amountInputRef = useRef();
+
     const submitHandler = (event)=>{
-        event.preventdefault();
-        console.log('event', event);
+        event.preventDefault();
+        // console.log('event', event);
         const enteredAmount = amountInputRef.current.value;
         const enteredAmountNumber = +enteredAmount;
+
         if(enteredAmount.trim().length === 0 || enteredAmountNumber < 1 || enteredAmountNumber > 5){
             setAmountIsValid(false);
             return;
         }
-        console.log('enteredAmountNumber', enteredAmountNumber);
-        props.onAddToCart(enteredAmountNumber)
+        // console.log('enteredAmountNumber', enteredAmountNumber);
+        props.onAddToCart(enteredAmountNumber);
     };
     return(
         <form className={classes.form} onSubmit={submitHandler}>
@@ -25,7 +27,7 @@ const MealItemForm = (props)=>{
                 input={{id:'amount_'+props.id, type:'number', min:'1', max:'5', step:'1', defaultValue:'1 '}}>
             </Input>
             <button>+ Add</button>
-            {!enteredAmount && <p>Please Enter the valid amount</p>}
+            {!amountIsValid && <p>Please Enter the valid amount</p>}
         </form>
     )
 };

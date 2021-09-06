@@ -4,10 +4,10 @@ import MealItemForm from "./MealItemForm";
 import CartContext from "../../../store/cart-context";
 
 const MealItem = (props)=>{
-    console.log('meals...', props)
+    // console.log('meals...', props)
     const cartCtx = useContext(CartContext);
     const addToCartHandler = (amount)=>{
-        console.log('amount..', amount);
+        // console.log('amount..', amount);
         cartCtx.addItem({
             id: props.id,
             name: props.name,
