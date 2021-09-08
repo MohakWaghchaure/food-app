@@ -25,7 +25,7 @@ const [isCheckout, setIsCheckout] = useState(false);
     const submitOrderHandler = (userData)=>{
         console.log('user Datra', userData);
 
-        fetch('https://food-order-app-50722-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json',{
+        fetch('database_link_for_orders',{
             method: 'POST',
             body: JSON.stringify({
                 user: userData,

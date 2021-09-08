@@ -21,7 +21,7 @@ const AvailableMeals = ()=>{
     
     useEffect(()=>{
         const fetchMeals = async()=>{
-            const response = await fetch('https://food-order-app-50722-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json',);
+            const response = await fetch('database_link_for_meals',);
             if(!response.ok){
                 throw new Error('Something went wrong !!!');
             }
