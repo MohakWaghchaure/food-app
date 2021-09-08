@@ -21,7 +21,7 @@ const AvailableMeals = ()=>{
     
     useEffect(()=>{
         const fetchMeals = async()=>{
-            const response = await fetch('//Api-link//',);
+            const response = await fetch('https://food-order-app-50722-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json',);
             if(!response.ok){
                 throw new Error('Something went wrong !!!');
             }
@@ -39,13 +39,11 @@ const AvailableMeals = ()=>{
             setMeals(loadedMeals);
             setIsLoading(false);
         };
-        try{
-            fetchMeals();
-        }
-        catch(e){
+        
+        fetchMeals().catch((e)=>{
             setIsLoading(false);
             setHttpError(e.message);
-        }        
+        })      
     }, []);
      
     if(isLoading){
