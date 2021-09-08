@@ -21,7 +21,7 @@ const AvailableMeals = ()=>{
     
     useEffect(()=>{
         const fetchMeals = async()=>{
-            const response = await fetch('database_link_for_meals',);
+            const response = await fetch('///////database_link_for_meals///////',);
             if(!response.ok){
                 throw new Error('Something went wrong !!!');
             }

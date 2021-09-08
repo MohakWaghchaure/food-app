@@ -25,7 +25,7 @@ const [isCheckout, setIsCheckout] = useState(false);
     const submitOrderHandler = (userData)=>{
         console.log('user Datra', userData);
 
-        fetch('database_link_for_orders',{
+        fetch('/////////database_link_for_orders////////',{
             method: 'POST',
             body: JSON.stringify({
                 user: userData,
